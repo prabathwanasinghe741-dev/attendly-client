@@ -1,0 +1,74 @@
+.qr-root {
+    width: 100vw;
+    height: 100dvh;
+    background: #000;
+    overflow: hidden;
+    isolation: isolate;
+    position: relative;
+  
+    #reader {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: #000;
+  
+      video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+      div {
+        border: none !important;
+        box-shadow: none !important;
+      }
+  
+      #reader__dashboard,
+      #reader__status_span,
+      #reader__camera_selection,
+      #reader__filescan,
+      #reader__scan_region img,
+      #reader__dashboard_section_csr {
+        display: none !important;
+      }
+  
+      /* scan box */
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 250px;
+        height: 250px;
+        transform: translate(-50%, -50%);
+        border: 2px solid #007AFF;
+        border-radius: 24px;
+        box-shadow: 0 0 0 9999px rgba(0,0,0,0.5);
+        z-index: 2;
+        pointer-events: none;
+      }
+  
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 250px;
+        height: 250px;
+        transform: translate(-50%, -50%);
+        border-radius: 24px;
+        background: 
+          linear-gradient(#fff, #fff) top left / 28px 3px no-repeat,
+          linear-gradient(#fff, #fff) top left / 3px 28px no-repeat,
+          linear-gradient(#fff, #fff) top right / 28px 3px no-repeat,
+          linear-gradient(#fff, #fff) top right / 3px 28px no-repeat,
+          linear-gradient(#fff, #fff) bottom left / 28px 3px no-repeat,
+          linear-gradient(#fff, #fff) bottom left / 3px 28px no-repeat,
+          linear-gradient(#fff, #fff) bottom right / 28px 3px no-repeat,
+          linear-gradient(#fff, #fff) bottom right / 3px 28px no-repeat;
+        z-index: 3;
+        pointer-events: none;
+      }
+    }
+  }

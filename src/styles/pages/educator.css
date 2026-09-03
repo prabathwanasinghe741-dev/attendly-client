@@ -1,0 +1,160 @@
+.educator-root {
+  --blue: #007AFF;
+  --border: #E5E5EA;
+  --gray: #F2F2F7;
+  --text: #1d1d1f;
+
+  min-height: 100vh;
+  background: #F2F8FF;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  isolation: isolate;
+
+  #navigation-bar {
+    height: 56px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    #app-name {
+      font-family: 'Grand Hotel', cursive;
+      font-size: 30px;
+      color: var(--text);
+    }
+
+    #actions button {
+      background: #E8F2FF;
+      color: var(--blue);
+      border: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+
+  #application-context {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+
+    #profile-view {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+
+      #svg-container {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+
+      #information-container {
+        flex: 1;
+
+        .one-row {
+          display: grid;
+          grid-template-columns: 90px 1fr 90px 1fr;
+          align-items: center;
+          gap: 8px 12px;
+          padding: 12px 0;
+          border-bottom: 1px solid var(--gray);
+
+          &:last-child { border-bottom: none; }
+
+          label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #8e8e93;
+            text-align: right;
+          }
+
+          span {
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--gray);
+            padding: 6px 12px;
+            border-radius: 8px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+
+        .one-row:nth-child(2) {
+          grid-template-columns: 90px 1fr;
+        }
+      }
+    }
+
+    #featuring-view-cards-container {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+
+      button {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        cursor: pointer;
+        text-align: left;
+        transition: transform 0.15s;
+
+        &:active { transform: scale(0.98); }
+
+        &.disabled {
+          opacity: 0.4;
+          pointer-events: none;
+        }
+
+        .svg-container {
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+        }
+
+        .text {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--text);
+        }
+      }
+
+      #entrance-card { border-left: 3px solid #16A34A; }
+      #leave-card { border-left: 3px solid #DC2626; }
+    }
+
+    @media (max-width: 700px) {
+      #profile-view {
+        flex-direction: column;
+
+        #information-container .one-row {
+          grid-template-columns: 90px 1fr;
+        }
+      }
+      
+      #featuring-view-cards-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

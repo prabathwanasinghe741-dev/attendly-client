@@ -1,0 +1,96 @@
+.qr-page {
+    min-height: 100vh;
+    background: #fff;
+    padding: 32px;
+    font-family: -apple-system, sans-serif;
+    isolation: isolate;
+  
+    .qr-header {
+      text-align: center;
+      margin-bottom: 32px;
+  
+      h1 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #000;
+        margin: 0;
+        letter-spacing: -0.5px;
+      }
+  
+      p {
+        font-size: 14px;
+        color: #000;
+        opacity: 0.5;
+        margin-top: 4px;
+      }
+  
+      @media print {
+        display: none; /* hide title when printing */
+      }
+    }
+  
+    .qr-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: flex-start;
+  
+      .qr-card {
+        width: 220px;
+        background: #fff;
+        border: 1px solid #000;
+        border-radius: 8px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        break-inside: avoid; /* don't cut card in print */
+        page-break-inside: avoid;
+  
+        .qr-img {
+          padding: 4px;
+          svg {
+            display: block;
+          }
+        }
+  
+        .qr-info {
+          width: 100%;
+          margin-top: 10px;
+          border-top: 1px solid #000;
+          padding-top: 8px;
+          text-align: center;
+  
+          .qr-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #000;
+            margin: 0;
+          }
+  
+          .qr-section {
+            font-size: 11px;
+            color: #000;
+            margin: 2px 0 0 0;
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  
+    /* PRINT STYLES */
+    @media print {
+      padding: 0;
+      background: #fff;
+  
+      .qr-grid {
+        gap: 12px;
+  
+        .qr-card {
+          border: 1px solid #000;
+          border-radius: 0;
+          box-shadow: none;
+        }
+      }
+    }
+  }
